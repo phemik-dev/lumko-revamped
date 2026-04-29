@@ -1,55 +1,50 @@
 const columns = [
-  ["Product", "Platform Overview", "Core Modules", "Architecture", "Trust & Compliance"],
-  ["Solutions", "By Role", "By Use Case", "By Industry"],
-  ["Developers", "APIs", "SDKs", "Documentation"],
-  ["Resources", "Whitepapers", "Case Studies", "Blog"],
-  ["Company", "About Us", "Careers", "Contact"]
+  ["Product", "How it works", "Security by design", "Data model", "Compliance"],
+  ["Solutions", "Health Systems", "Life Sciences", "Payers", "Public Health"],
+  ["Developers", "API overview", "Documentation", "SDKs", "Sandbox"],
+  ["Resources", "Blog", "Case studies", "Whitepapers", "Support"],
+  ["Company", "About us", "Careers", "Newsroom", "Contact"]
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#061935] text-white">
-      <div className="pointer-events-none absolute inset-0 opacity-35 bg-[radial-gradient(circle_at_80%_20%,rgba(31,138,138,0.4),transparent_42%),radial-gradient(circle_at_20%_90%,rgba(31,93,153,0.35),transparent_40%)]" />
-      <div className="relative mx-auto grid w-full max-w-[1240px] gap-12 px-8 py-[120px] md:grid-cols-[220px_1fr]">
+    <footer className="relative overflow-hidden bg-navy text-white">
+      <div className="dark-wave-field opacity-40" />
+      <div className="relative mx-auto grid w-full max-w-[1320px] gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[280px_1fr]">
         <div>
-          <p className="text-[34px] font-semibold tracking-tight">
-            <span className="text-white">Lumko</span>
-            <span className="text-teal">MDX</span>
-          </p>
-          <p className="mt-4 text-sm text-white/70">Sovereign by design</p>
-          <p className="mt-8 text-sm text-white/60">© 2025 LumkoMDX. All rights reserved.</p>
-    <footer className="border-t border-muted-gray bg-white">
-      <div className="mx-auto grid w-full max-w-[1240px] gap-10 px-6 py-14 md:grid-cols-[220px_1fr]">
-        <div>
-          <p className="text-5xl font-semibold tracking-tight text-charcoal">
+          <p className="text-[42px] font-black tracking-normal">
             <span>Lumko</span>
-            <span className="text-teal">MDX</span>
+            <span className="text-blue-light">MDX</span>
           </p>
-          <p className="mt-6 text-sm text-charcoal/70">© 2025 LumkoMDX. All rights reserved.</p>
+          <p className="mt-5 text-xl text-white/58">Sovereign by design</p>
         </div>
-        <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-5">
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {columns.map(([title, ...items]) => (
             <div key={title}>
-              <p className="text-sm font-semibold text-white">{title}</p>
-              <ul className="mt-3 space-y-2 text-sm text-white/65">
-              <p className="text-sm font-semibold text-charcoal">{title}</p>
-              <ul className="mt-3 space-y-2 text-sm text-charcoal/70">
+              <p className="font-black text-blue-light">{title}</p>
+              <ul className="mt-5 space-y-4 text-base text-white/72">
                 {items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <a className="transition hover:text-white" href="#demo">
+                      {item}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
       </div>
-      <div className="relative border-t border-white/10 py-5">
-        <div className="mx-auto flex w-full max-w-[1240px] justify-end gap-10 px-8 text-sm text-white/60">
-      <div className="border-t border-muted-gray py-4">
-        <div className="mx-auto flex w-full max-w-[1240px] justify-end gap-10 px-6 text-sm text-charcoal/60">
-          <p>Privacy Policy</p>
-          <p>Terms of Use</p>
-          <p>Compliance</p>
-        </div>
+
+      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col gap-5 border-t border-white/18 px-6 py-8 text-base text-white/76 sm:px-8 md:flex-row md:items-center md:justify-center md:gap-10">
+        <span className="shield-icon h-11 w-11 text-blue-light" />
+        <span className="hidden h-8 w-px bg-white/18 md:block" />
+        <a href="#demo">Privacy Policy</a>
+        <span className="hidden md:inline">-</span>
+        <a href="#demo">Terms of Use</a>
+        <span className="hidden md:inline">-</span>
+        <a href="#demo">Compliance</a>
       </div>
     </footer>
   );
