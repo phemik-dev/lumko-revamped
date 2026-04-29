@@ -1,36 +1,89 @@
+const bars = [
+  ["Hospital A", "9,842 (39.8%)", "w-[82%]"],
+  ["Health System B", "8,126 (32.9%)", "w-[68%]"],
+  ["Medical Center C", "6,763 (27.3%)", "w-[52%]"]
+];
+
 export default function HeroVisual() {
   return (
-    <div className="relative h-[440px] overflow-hidden rounded-2xl border border-muted-gray bg-[#f9fbfe]">
-      <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_25%_30%,rgba(31,93,153,0.08),transparent_44%),radial-gradient(circle_at_72%_70%,rgba(31,138,138,0.08),transparent_40%)]" />
+    <div className="relative mx-auto w-full max-w-[610px] rounded-2xl border border-line bg-white/90 p-5 shadow-panel backdrop-blur">
+      <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
+        <div className="rounded-xl border border-line bg-white p-5 shadow-soft">
+          <p className="font-bold text-ink">Federated query</p>
+          <div className="mt-4 rounded-lg border border-line bg-[#fbfdff] p-4 text-sm leading-6 text-muted">
+            Patients with type 2 diabetes aged 50-75 with A1C &gt; 8%
+          </div>
+          <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-muted">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue text-white">
+              <span className="shield-icon h-3 w-3" />
+            </span>
+            Privacy-preserving
+            <span className="text-line">-</span>
+            No data leaves source
+          </div>
+          <div className="mt-5 rounded-xl border border-line bg-white p-4">
+            <p className="text-sm font-bold text-ink">Query results</p>
+            <div className="mt-4 flex items-baseline gap-4">
+              <span className="text-3xl font-black text-blue">24,731</span>
+              <span className="text-xs font-semibold text-muted">Patients matched</span>
+            </div>
+            <div className="mt-5 space-y-4">
+              {bars.map(([label, value, width]) => (
+                <div className="grid grid-cols-[95px_1fr_80px] items-center gap-3 text-xs" key={label}>
+                  <span className="font-semibold text-blue">{label}</span>
+                  <span className="h-1.5 rounded-full bg-[#edf4ff]">
+                    <span className={`block h-full rounded-full bg-blue-gradient ${width}`} />
+                  </span>
+                  <span className="text-right text-muted">{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-muted">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#e9f8ef] text-[#25a05a]">
+              <span className="shield-icon h-3 w-3" />
+            </span>
+            All data remains behind institutional firewalls
+          </div>
+        </div>
 
-      <div className="absolute left-[20%] top-[8%] h-[84%] w-[62%] bg-[#edf3fb] [clip-path:polygon(44%_0%,56%_5%,60%_13%,73%_18%,86%_31%,84%_43%,91%_56%,82%_66%,84%_78%,75%_88%,62%_100%,52%_96%,43%_100%,34%_92%,28%_81%,20%_76%,16%_62%,11%_52%,11%_40%,17%_31%,24%_22%,29%_10%)]" />
-
-      <div className="absolute left-[25%] top-[16%] h-[66%] w-[49%] rounded-[44%] border border-[#d7e3f2]" />
-      <div className="absolute left-[29%] top-[24%] h-[50%] w-[40%] rounded-[44%] border border-[#dbe6f4]" />
-      <div className="absolute left-[33%] top-[32%] h-[34%] w-[31%] rounded-[44%] border border-[#e1eaf6]" />
-
-      <div className="absolute left-[14%] top-[40%] h-px w-[34%] bg-blue/45" />
-      <div className="absolute left-[45%] top-[52%] h-px w-[28%] rotate-[22deg] bg-gold/70" />
-      <div className="absolute left-[31%] top-[62%] h-px w-[38%] -rotate-[10deg] bg-teal/45" />
-
-      <div className="absolute left-[27%] top-[38%] h-2 w-2 rounded-full bg-blue/80" />
-      <div className="absolute left-[51%] top-[50%] h-2 w-2 rounded-full bg-gold/80" />
-      <div className="absolute left-[44%] top-[62%] h-2 w-2 rounded-full bg-teal/70" />
-
-      <div className="absolute inset-[14%] opacity-25 [background-image:radial-gradient(#7ca1ce_0.75px,transparent_0.75px)] [background-size:10px_10px] [clip-path:polygon(44%_0%,56%_5%,60%_13%,73%_18%,86%_31%,84%_43%,91%_56%,82%_66%,84%_78%,75%_88%,62%_100%,52%_96%,43%_100%,34%_92%,28%_81%,20%_76%,16%_62%,11%_52%,11%_40%,17%_31%,24%_22%,29%_10%)]" />
-    <div className="relative h-[420px] overflow-hidden rounded-2xl border border-[#e6edf3] bg-[#f8fbff]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(31,93,153,0.12),transparent_44%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_65%,rgba(31,138,138,0.08),transparent_42%)]" />
-      <div className="absolute left-12 top-24 h-60 w-60 rounded-full border border-blue/15" />
-      <div className="absolute right-12 top-14 h-72 w-72 rounded-full border border-teal/15" />
-      <div className="absolute left-[18%] top-[38%] h-px w-52 bg-blue/50" />
-      <div className="absolute left-[44%] top-[44%] h-px w-44 bg-gold/70" />
-      <div className="absolute left-[34%] top-[52%] h-px w-60 bg-teal/40" />
-      <div className="absolute left-[30%] top-[34%] h-3 w-3 rounded-full bg-blue" />
-      <div className="absolute left-[56%] top-[45%] h-3 w-3 rounded-full bg-gold" />
-      <div className="absolute left-[48%] top-[58%] h-3 w-3 rounded-full bg-teal" />
-      <div className="absolute left-[28%] top-[20%] h-64 w-64 rounded-[40%] border border-[#d5e3f2] bg-white/50" />
-      <div className="absolute bottom-8 left-8 text-xs uppercase tracking-[0.22em] text-teal">contained intelligence visual</div>
+        <div className="rounded-xl border border-line bg-white p-5 shadow-soft">
+          <p className="font-bold text-ink">Cohort overview</p>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            {[
+              ["24,731", "Total patients"],
+              ["57.2", "Avg. age"],
+              ["52%", "Female"],
+              ["3", "Data sources"]
+            ].map(([value, label]) => (
+              <div className="rounded-lg border border-line bg-[#fbfdff] p-3" key={label}>
+                <p className="text-lg font-black text-blue">{value}</p>
+                <p className="text-xs text-muted">{label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 rounded-xl border border-line bg-white p-4">
+            <p className="text-sm font-bold text-ink">Age distribution</p>
+            <div className="mt-6 flex h-32 items-end justify-between gap-3 border-b border-line px-2">
+              {[44, 72, 92, 82, 58].map((height, index) => (
+                <div className="flex flex-1 flex-col items-center gap-2" key={height}>
+                  <span
+                    className="w-full max-w-7 rounded-t bg-[linear-gradient(180deg,#69a9ff,#1f75dc)] shadow-[0_4px_12px_rgba(26,105,205,0.25)]"
+                    style={{ height: `${height}%` }}
+                  />
+                  <span className="text-[10px] font-semibold text-muted">{["50-54", "55-59", "60-64", "65-69", "70-75"][index]}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-muted">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#eef6ff] text-blue">
+              <span className="shield-icon h-3 w-3" />
+            </span>
+            Results are aggregated and de-identified
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
